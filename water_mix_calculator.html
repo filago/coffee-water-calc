@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Water Mix Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input {
+            margin: 5px;
+        }
+        button {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Water Mix Calculator</h1>
+    <p>For <input type="number" id="percentage" value="30">% tap water mix:</p>
+    <p>Starting with <input type="number" id="tapWater" value="502">g tap water, and</p>
+    <p>adding <input type="number" id="distWater1" value="588">g dist. water, requires</p>
+    <p>final add of <span id="result">0</span>g dist water.</p>
+    <button onclick="calculate()">Calculate</button>
+
+    <script>
+        function calculate() {
+            var percentage = parseInt(document.getElementById('percentage').value);
+            var tapWater = parseInt(document.getElementById('tapWater').value);
+            var distWater1 = parseInt(document.getElementById('distWater1').value);
+
+            var result = Math.round((tapWater / (percentage / 100)) - tapWater - distWater1);
+            document.getElementById('result').innerText = result;
+        }
+    </script>
+</body>
+</html>
